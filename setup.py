@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='phosphorus',
+    name='ling123',
     version='0.1.0',
     packages=['ling123']
 )
