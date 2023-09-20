@@ -73,3 +73,7 @@ def theorem_tree(s, rules, maxdepth=5, reset_found=True):
       theorem_tree(o, rules, maxdepth - 1, False) if maxdepth > 1 else o
       for o in get_outputs(s, rules)
   ]
+
+
+def all_theorems():
+  return found
