@@ -1,7 +1,6 @@
 import pickle
 from IPython.display import HTML
 from unittest import TestCase
-from . import pp
 
 class Grader:
   def __init__(self, pkl=None):
@@ -13,6 +12,7 @@ class Grader:
       self.key = pkl
 
   def check(self, ex, answer, test='assertEqual', msg=None):
+    from . import pp
     self.answers[ex] = answer
     result = f'<h2>Exercise {ex} Results</h2>\n'
     result += f'<pre>{pp(answer,True)}</pre>\n'
