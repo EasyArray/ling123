@@ -9,5 +9,3 @@ def pp(x):
     print(textwrap.fill(x))
   else:
     pprint.pp(x, compact=True)
-
-pp(mad_lib)
