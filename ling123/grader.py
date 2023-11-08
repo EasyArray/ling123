@@ -15,7 +15,7 @@ class Grader:
   def check(self, ex, answer, test='assertEqual', msg=None):
     self.answers[ex] = answer
     result = f'<h2>Exercise {ex} Results</h2>\n'
-    result + = f'<pre>{pp(answer,True)}</pre>\n'
+    result += f'<pre>{pp(answer,True)}</pre>\n'
     if self.key and ex in self.key:
       try:
         getattr(TestCase(),test)(answer, self.key[ex], msg)
