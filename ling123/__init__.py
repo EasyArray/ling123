@@ -4,11 +4,14 @@ from .grader import Grader
 
 import pprint
 import textwrap
-def pp(x):
+def pp(x, tostring=False):
   if type(x) == str:
-    print(textwrap.fill(x))
+    out = textwrap.fill(x)
   else:
-    pprint.pp(x, compact=True)
+    out = pprint.pformat(x, compact=True)
+
+  if tostring: return out
+  else: print(out)
 
 from contextlib import contextmanager
 import builtins
