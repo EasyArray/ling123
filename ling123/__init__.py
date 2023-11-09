@@ -36,3 +36,16 @@ def mock_input(mocked_responses):
     finally:
         # Restore the original input function
         builtins.input = original_input
+
+import base64
+
+def encode(data):
+    if isinstance(data, str):
+        data = data.encode('utf-8')
+    return base64.b64encode(data)
+
+def decode(encoded_data, decode_to_str=True):
+    decoded_data = base64.b64decode(encoded_data)
+    if decode_to_str:
+        return decoded_data.decode('utf-8')
+    return decoded_data
