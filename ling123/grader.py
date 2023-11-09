@@ -1,4 +1,5 @@
 import pickle
+import base64
 from IPython.display import HTML
 from unittest import TestCase
 
@@ -7,6 +8,7 @@ class Grader:
     self.results = {}
     self.answers = {}
     if pkl:
+      pkl = base64.b64decode(pkl)
       self.key = pickle.loads(pkl)
     else:
       self.key = pkl
@@ -33,7 +35,8 @@ class Grader:
   def __call__(self):
     if not self.key:
       display(HTML('<h2>Answer Key Code</h3>'))
-      display(pickle.dumps(self.answers))
+      pkl = pickle.dumps(self.answers)
+      display(base64.b64encode(pkl))
     else:
       for ex in self.results:
         display(self.results[ex])
