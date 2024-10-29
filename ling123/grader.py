@@ -20,7 +20,9 @@ class Grader:
     result += f'<pre>{pp(answer,True)}</pre>\n'
     if self.key and ex in self.key:
       try:
-        getattr(TestCase(),test)(answer, self.key[ex], msg)
+        tc = TestCase()
+        tc.maxDiff = None
+        getattr(tc,test)(answer, self.key[ex], msg)
         result += '<h3 style="color:green;">Correct!</h3>'
       except Exception as e:
         result += '<h3 style="color:red;">Incorrect!</h3>\n'
