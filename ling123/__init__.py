@@ -7,7 +7,7 @@ import pprint
 import textwrap
 def pp(x, tostring=False):
   if type(x) == str:
-    out = textwrap.fill(x)
+    out = textwrap.fill(x, replace_whitespace=False)
   else:
     out = pprint.pformat(x, compact=True)
 
